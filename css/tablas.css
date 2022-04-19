@@ -1,0 +1,40 @@
+table{
+  width: 90%;
+	margin: 0% 5%;
+  border: solid 1px black;
+	border-collapse: collapse;
+	border-radius: 5px;
+	color: black;  
+}
+tr{
+    border: solid 1px black;
+}
+td.titulo1{
+    background-color: lightblue;
+    border: solid 1px black;
+    text-align: center;
+    color: black;
+}
+td.titulo2{
+  background-color: lightblue;
+  border: solid 1px black;
+  text-align: center;
+  color: black;
+}
+td.detalle{
+    background-color: white;
+    border: solid 1px black;
+    text-align: center;
+    color: black;
+}
+a{
+    outline: none;
+    text-decoration: none;
+}
+a:link {
+    color: black;
+}
+a:visited {
+    color: black;
+}
+  

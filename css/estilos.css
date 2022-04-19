@@ -1,0 +1,167 @@
+body{
+	background-image:url(../img/oper.jpg);
+	width: 99%;
+	height:99%;
+	background-size:cover;
+	color:whitesmoke;
+}
+header.login {
+    text-align: center;
+    padding: 1% 0% 1%;
+}
+header.bienvenida{
+    background-color: white;
+	color:red;
+	text-align: center;
+	margin: 15% 25%;
+	border-radius: 5px;
+}
+footer.login{
+    text-align: center;
+    padding: 0% 0% 1%;
+
+}
+form.login{
+	background-color: whitesmoke;
+	margin: 0% 35%;
+	padding-bottom: 1%;
+	border-radius: 5px;
+	color:black;
+}
+table.cabecera{
+	width: 80%;
+	background-color: lightblue;
+	border-radius: 5px;
+	color: red;
+}
+img.cabecera{
+	width: 100px;
+}
+h1.cabecera{
+	margin: 0%;
+	padding: 0%;
+}
+h2.cabecera{
+	margin: 0%;
+	padding: 0%;
+}
+#menucabecera{
+	margin: 0% 10%;
+	padding-top: 0%;
+	width: 90%;
+	font-family:Arial, Helvetica, sans-serif;
+}
+ul, ol{
+	list-style:none;
+}
+.nav > li{
+	float:left;
+}
+.nav li a{
+	background-color:lightblue;
+	color: red;
+	text-decoration: none;
+	padding:10px 12px;
+	display:block;
+	border-radius: 5px;
+	border: solid 1px black;
+}
+.nav li a:hover{
+	background-color:lightgray;
+}
+.nav li ul{
+	display:none;
+	position:absolute;
+	min-width:140px;
+}
+.nav li:hover > ul{
+	display:block;
+}
+.nav li ul li{
+	position:relative;
+}
+.nav li ul li ul{
+	right:-140px;
+	top:0px;
+}
+section.tablamuestra{
+	margin: 1% 10% 0%;
+	background-color: lightblue;
+	border-radius: 5px;
+	border: solid 1px black;
+	width: 80%;
+}
+h1.tablamuestra{
+	margin: 0% 10% 0%;
+	color: red;
+	width: 80%;
+	text-align: center;
+	font-size:20px;
+}h2.tablamuestra{
+	margin: 0% 10%;
+	color: black;
+	width: 80%;
+	text-align: center;
+	font-size:20px;
+}
+table.tablamuestra{
+	margin: 0% 5%;
+	background-color: whitesmoke;	
+	width: 90%;
+	color: black;
+	border: solid 1px black;
+	border-collapse: collapse;
+}
+th.tablamuestra, td.tablamuestra{
+	border:solid 1px black;
+	padding: 3px;
+	text-align: center;
+}
+th.tablamuestra{
+	background-color: lightblue;
+	color: black;
+}
+tr.tablamuestra:nth-child(even){
+	background-color: lightgray;
+}
+tr.tablamuestra:hover{
+	background-color: gray;
+	cursor:pointer;
+	color: white;
+}
+table.tabladet{
+	margin: 0% 5%;
+	background-color: whitesmoke;	
+	width: 90%;
+	color: black;
+	border: solid 1px black;
+	border-collapse: collapse;
+}
+th.tabladet, td.tabladet, td.tabladet1{
+	border:solid 1px black;
+	padding: 3px;
+}
+th.tabladet{
+	background-color:lightcyan;
+	color: black;
+	text-align: center;
+}
+td.tabladet1{
+	background-color: lightcyan;
+	color: black;
+	text-align: left;
+}
+td.tabladet{
+	background-color: white;
+	color: black;
+	text-align: left;
+}
+tr.tabladet:nth-child(even){
+	background-color: lightgray;
+}
+tr.tabladet:hover{
+	background-color: gray;
+	cursor:pointer;
+	color: white;
+}
+	
