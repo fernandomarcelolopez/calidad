@@ -24,7 +24,7 @@ require('../templates/sesioncom.php');
 					<h5><?php echo "Usuario: ".$_SESSION['nombre'] ?></h5>
 				</td>
 				<td align=left>
-				<a class="varios"href="../usuario.php" target="_top"><img src="../img/user.png" width=60px></a>
+				<a class="varios"href="usuario.php" target="principal"><img src="../img/user.png" width=60px></a>
 				</td>
 				<td align=left>
 				<a class="varios"href="../portal.php" target="_top"><img src="../img/home.png" width=60px></a>

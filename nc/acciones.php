@@ -46,8 +46,6 @@ echo "<table border='1' align='center'>";
 		echo "<col width='20%'/>";
 		echo "<col width='70%'/>";
 	echo "</colgroup>";
-	echo "<thead>";
-	echo "</thead>";
 	echo "<tbody>";
 		echo "<tr>";
 			echo "<td class='titulo2' colspan=1 style='text-align:left'><Font size='6'> Ticket N° ". $numerotk ."</Font></td>";
