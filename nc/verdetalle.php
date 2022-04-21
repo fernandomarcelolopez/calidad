@@ -10,6 +10,7 @@ require('../templates/conexioncom.php');
 require('../templates/sesioncom.php');
 
 $user=$_SESSION['usuario'];
+$perfil=$_SESSION['perfil'];
 $numerotk=$_POST['numero'];
 $generado=$_POST['generado'];
 
@@ -324,25 +325,7 @@ If ($estado == 'Cerrado')
 					echo "<td colspan=1 align=left>".$observacioncierre."</td>";
 				echo "</tr>";
 }
-	echo "</tbody>";
-echo "</table>";
-echo "<table border='0' align='center'>";
-	echo "<colgroup>";
-		echo "<col width='50%'/>";
-		echo "<col width='50%'/>";
-	echo "</colgroup>";
-	echo "<tbody>";
-		echo "<tr>";
-			echo "<td colspan='1' align='right'>";
-			IF ($estado == 'Sin Respuesta' AND $generado=='0')
-			{
-				echo "<form action='respuesta.php' method='post' target='principal'>";
-					echo "<input type='hidden' value='".$numerotk."' name='numero' id:'numero' />";
-					echo "<input type='submit' value='Responder' name='submit'/>";
-				echo "</form>";	
-			}
-			echo "</td>";
-			echo "<td colspan='1' align='Left'>";
+			echo "<td colspan='2' align='center'>";
 				echo "<form action='vermiassinres.php' method='post' target='principal'>";
 					echo "<input type='submit' value='Salir' name='submit'/>";
 				echo "</form>";	
@@ -352,6 +335,5 @@ echo "<table border='0' align='center'>";
 echo "</table>";
 
 mysqli_close($iden); 
-
 ?>
 </html> 

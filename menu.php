@@ -96,7 +96,7 @@
 			</a>
 		</td>
 		<td align=center>
-	    	<a href="abm.php">
+	    	<a href="abm/portalabm.php" target="_top">
 			<div class="contenedor">
 				<img src="img/configura.png" width=300px height=200px border=1>
 				<div class="centrado"><p class="textosobre">

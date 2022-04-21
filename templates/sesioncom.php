@@ -19,10 +19,10 @@ IF ($ahora > $_SESSION['tiempo'])
 	echo "  <table border=0>";
 	echo "	<tbody>";
 	echo "	<tr>";
-	echo "  <td align=center><font size=4 color=black>La sesi&oacute;n ha caducado</font></td>";
+	echo "  <td align=center border=0><font size=4 color=black>La sesi&oacute;n ha caducado</font></td>";
 	echo "	</tr>";
 	echo "	<tr>";
-	echo "  <td align=center><font size=4 color=white><a href='../login.php?estado=2' target='_parent'><input type='submit' value='Volver a ingresar' name='submit'/></a></font></td>";
+	echo "  <td align=center border=0><font size=4 color=white><a href='http://172.20.1.223/calidad/login.php?estado=2' target='_parent'><input type='submit' value='Volver a ingresar' name='submit'/></a></font></td>";
 	echo "	</tr>";
 	echo "	</tbody>";
 	echo "  </table>";

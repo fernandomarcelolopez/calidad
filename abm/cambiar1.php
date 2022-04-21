@@ -50,22 +50,23 @@ echo "  <table border='1' align='center'>";
 		echo "</tr>";
 if($seleccion == 'usuario'){
     echo "<tr>";
-        echo "<form action='cambiar.php' method='post' target='principal'>";
+        echo "<form action='cambiardatos1.php' method='post' target='principal'>";
             echo "<td class='titulo2'>Nombre de Usuario</td>";
             echo "<td class='detalle'><input type='text' name='usuario' id='usuario' value='".$user."' required maxlength='50' size='30'></td>";
             echo "<td class='detalle'>";
-                echo "<input type='submit' value='Cambiar' name='submit'/>";
+            echo "<input type='hidden' value='".$seleccion."' name='seleccion' id:'seleccion' />";
+            echo "<input type='submit' value='Cambiar' name='submit'/>";
             echo "</td>";
         echo "</form>";	
     echo "</tr>";
 }
 if($seleccion == 'nombre'){
     echo "<tr>";
-        echo "<form action='cambiar.php' method='post' target='principal'>";
+        echo "<form action='cambiardatos1.php' method='post' target='principal'>";
             echo "<td class='titulo2'>Nombre del Usuario</td>";
-            echo "<td class='detalle'><input type='text' name='nombre' id='nombre' value='".$nombreper."' required maxlength='50' size='150'></td>";
+            echo "<td class='detalle'><input type='text' name='nombre' id='nombre' value='".$nombreper."' required maxlength='150' size='50'></td>";
             echo "<td class='detalle'>";
-                echo "<input type='hidden' value='".$user."' name='usuario' id:'usuario' />";
+            echo "<input type='hidden' value='".$seleccion."' name='seleccion' id:'seleccion' />";
                 echo "<input type='submit' value='Cambiar' name='submit'/>";
             echo "</td>";
         echo "</form>";	
@@ -73,19 +74,39 @@ if($seleccion == 'nombre'){
 }
 if($seleccion == 'email'){
         echo "<tr>";
-            echo "<form action='cambiar.php' method='post' target='principal'>";
+            echo "<form action='cambiardatos1.php' method='post' target='principal'>";
                 echo "<td class='titulo2'>Email</td>";
-                echo "<td class='detalle'><input type='email' name='nombre' id='nombre' value='".$email."' required maxlength='50' size='75'></td>";
+                echo "<td class='detalle'><input type='email' name='email' id='email' value='".$email."' required maxlength='50' size='75'></td>";
                 echo "<td class='detalle'>";
-                    echo "<input type='hidden' value='".$user."' name='usuario' id:'usuario' />";
-                    echo "<input type='submit' value='Cambiar' name='submit'/>";
+                echo "<input type='hidden' value='".$seleccion."' name='seleccion' id:'seleccion' />";
+                echo "<input type='submit' value='Cambiar' name='submit'/>";
                 echo "</td>";
             echo "</form>";	
         echo "</tr>";
 }
-		echo "<tr>";
+if($seleccion == 'contra'){
+        echo "<form action='cambiardatos1.php' method='post' target='principal'>";
+            echo "<tr>";
+                echo "<td class='titulo2'>Contraseña actual</td>";
+                echo "<td class='detalle'><input type='password' name='clave0' id='clave0' required maxlength='50' size='50'></td>";
+                echo "<td class='detalle' rowspan='3'>";
+                    echo "<input type='hidden' value='".$seleccion."' name='seleccion' id:'seleccion' />";
+                    echo "<input type='submit' value='Cambiar' name='submit'/>";
+                echo "</td>";
+            echo "</tr>";
+                echo "<tr>";
+                    echo "<td class='titulo2'>Contraseña nueva</td>";
+                    echo "<td class='detalle'><input type='password' name='clave1' id='clave1' required maxlength='50' size='50'></td>";
+                echo "</tr>";
+                echo "<tr>";
+                    echo "<td class='titulo2'>Repita Contraseña</td>";
+                    echo "<td class='detalle'><input type='password' name='clave2' id='clave2' required maxlength='50' size='50'></td>";
+                echo "</tr>";
+            echo "</form>";	
+}
+    echo "<tr>";
             echo "<td colspan='3' align='center'>";
-                echo "<form action='usuario.php' method='post' target='principal'>";
+                echo "<form action='verusuario1.php' method='post' target='principal'>";
                     echo "<input type='submit' value='Salir' name='submit'/>";
                 echo "</form>";	
             echo "</td>";

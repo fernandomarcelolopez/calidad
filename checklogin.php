@@ -47,7 +47,8 @@ IF (isset($_POST['usuario']))
 		$_SESSION['usuario'] = $usuario;	
 		$_SESSION['perfil'] = $perfil;	
 		$_SESSION['inicio'] = time();	
-		$_SESSION['tiempo'] = $_SESSION['inicio'] + (5*60);	
+		$_SESSION['demora'] = 600;	
+		$_SESSION['tiempo'] = $_SESSION['inicio'] + $_SESSION['demora'];	
 		header("Location:cambia.php");
 	}
 	IF($datos['clave'] == md5($clave) && $datos['estado'] == 0)
