@@ -18,7 +18,7 @@ require('../templates/sesioncom.php');
 			</colgroup>
 			<tr>
 				<td align=left>
-					<img src="../img/iso.png" width=120px>
+					<img src="../img/iso.png" width=150px>
 				</td>
 				<td align=right>
 					<h5><?php echo "Usuario: ".$_SESSION['nombre'] ?></h5>

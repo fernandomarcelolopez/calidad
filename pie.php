@@ -18,7 +18,7 @@
 			</colgroup>
 			<tr>
 	 			<td>
-	   				<img src="img/iso.png" width=100px>
+	   				<img src="img/iso.png" width=150px>
 					</td>
 	 			<td>
 	    			<h5>PROGRAMA CALIDAD DE LOS SERVICOS - SISTEMA DE EMERGENCIAS 911 - CONTACTO: EMAIL:sistemadeemergencias911calidad@gmail.com - INTERNO: 1104</h5>
