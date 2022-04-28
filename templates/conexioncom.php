@@ -4,7 +4,7 @@ IF(!$iden)
 { 
 	die("Error: No se pudo conectar"); 
 }	
-IF(!mysqli_select_db($iden,'snc')) 
+IF(!mysqli_select_db($iden,'calidad')) 
 {
 	die("Error: No existe la base de datos");
 }

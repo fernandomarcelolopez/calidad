@@ -44,7 +44,7 @@ echo "<table>";
                 }
                 echo "</form>";
                 echo "<form action='veracciones.php' method='get' target='principal'>";
-                IF($perfil == 3){
+                IF($perfil == 2){
                     echo "<input type='submit' value='Verificar acciones' name='submit'/><br>";
                 }
                 ELSE{
@@ -52,7 +52,7 @@ echo "<table>";
                 }
                 echo "</form>";
                 echo "<form action='verefecti.php' method='get' target='principal'>";
-                IF($perfil == 3){
+                IF($perfil == 2){
                     echo "<input type='submit' value='Verificar efectividad' name='submit'/><br>";
                 }
                 ELSE{
@@ -60,7 +60,7 @@ echo "<table>";
                 }
                 echo "</form>";
                 echo "<form action='vercierres.php' method='get' target='principal'>";
-                IF($perfil == 3){
+                IF($perfil == 2){
                     echo "<input type='submit' value='Cerrar Ticket' name='submit'/><br>";
                 }
                 ELSE{
@@ -81,7 +81,7 @@ echo "<table>";
                 echo "<input type='submit' value='Listar Tickets activos' name='submit'/><br>";
             echo "</form>";
             echo "<form action='constructor.php' method='get' target='principal'>";
-            IF($perfil == 3){
+            IF($perfil == 2){
                 echo "<input type='submit' value='Estadisticas' name='submit'/><br>";
             }
             ELSE{

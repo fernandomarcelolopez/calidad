@@ -28,7 +28,7 @@ echo "  <table>";
 			echo "<td class='titulo1' colspan='9' align=center><h2>Lista de Tickets Activos de Mi Área sin Respuesta</h2</td>";
 		echo "</tr>";
 		echo "<tr>";
-			echo "<td class='titulo2'>NC N&ordm</td>";
+			echo "<td class='titulo2'>Ticket N°</td>";
 			echo "<td class='titulo2'>Fecha Obs.</td>";
 			echo "<td class='titulo2'>Detectado por</td>";
 			echo "<td class='titulo2'>Para el Sector</td>";

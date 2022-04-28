@@ -12,7 +12,7 @@
 <table border=0>
     <tr>
 		<td align=center>
-			<a href="nc/portalnc.php" target="_top">
+			<a href="td/portal.php" target="_top">
 				<div class="contenedor">
 					<img src="img/nocon.jpg" width=300px height=200px border=1>
 					<div class="centrado">
@@ -32,9 +32,9 @@
 	    	</a>
 		</td>
 		<td align=center>
-	    	<a href="qrsf.php">
+	    	<a href="qr/portal.php" target="_top">
 			<div class="contenedor">
-		  		<img src="img/quejas.jpg" width=300px height=200px border=1>
+		  		<img src="img/quejas.png" width=300px height=200px border=1>
 		  		<div class="centrado"><p class="textosobre">
 					<b>Gesti&oacuten de Quejas y Reclamos</b></p>
 				</div>
