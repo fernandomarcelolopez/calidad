@@ -21,7 +21,11 @@ td.titulo2{
   text-align: center;
   color: black;
 }
-td.detalle{
+td.titulo3{
+  background-color: white;
+  border: 0px;
+  text-align: center;
+}td.detalle{
     background-color: white;
     border: solid 1px black;
     text-align: center;

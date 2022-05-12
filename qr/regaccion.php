@@ -10,8 +10,19 @@ require('../templates/conexioncom.php');
 require('../templates/sesioncom.php');
 
 $user=$_SESSION['usuario'];
+$idper=$_SESSION['idper'];
+
+$sentencia = 'SELECT * FROM personas WHERE Idpersonas = "' . $idper. '"';
+$consulta = mysqli_query($iden,$sentencia);
+$buscada = mysqli_fetch_array($consulta);
+
+$idperso=$buscada['nombrepersonas'];
 
 $idqrf=$_POST['idqrf'];
+$idper=$_POST['idper'];
+$fecha=$_POST['fecha'];
+$hora=$_POST['hora'];
+$accion=$_POST['accion'];
 
 $sentencia = 'SELECT * FROM quejas WHERE Idqrf = "' . $idqrf. '"';
 $consulta = mysqli_query($iden,$sentencia);
@@ -36,14 +47,16 @@ $iorigen=$buscada['iorigen'];
 $suceso=$buscada['suceso'];
 $idpersona=$buscada['idpersona'];
 $respuesta=$buscada['respuesta'];
-$accion=$buscada['accion'];
-$estado=$buscada['estado'];
 
 $sentencia = 'SELECT * FROM personas WHERE Idpersonas = ' . $idpersona;
 $consulta = mysqli_query($iden,$sentencia);
 $buscada = mysqli_fetch_array($consulta);
 
 $personacarga=$buscada['nombrepersonas'];
+
+
+$sentencia = "UPDATE quejas SET accion='".$accion."', idaccion= '".$idper."', fechaaccion= '".$fecha."', horaaccion= '".$hora."', estado= 'Para Verificar' WHERE idqrf='".$idqrf."'";
+$consulta = mysqli_query($iden,$sentencia);
 
 
 echo "<form action='vermisquejas.php' method='post'>";
@@ -117,24 +130,23 @@ echo "<form action='vermisquejas.php' method='post'>";
 				echo "<td class='titulo2'colspan='1' style='text-align:left'>Suceso asociado</td>";
 				echo "<td colspan=1 align=left>".$suceso."</td>";
 			echo "</tr>";
-			if($estado != 'Sin Tratar'){
-				echo "<tr>";
-				echo "<td class='titulo2' colspan='2' align=center><b>CARGA DE RESPUESTA</b></td>";
+			echo "<tr>";
+				echo "<td class='titulo2' colspan='2' align=center><b>DETALLE DE RESPUESTA</b></td>";
 			echo "</tr>";
 			echo "<tr>";
 				echo "<td class='titulo2' colspan='1' style='text-align:left'>Respuesta</td>";
 				echo "<td colspan='1' align=left>".$respuesta."</td>";
 			echo "</tr>";
-			}
-			if($estado != 'Sin Tratar' AND $estado != 'Tratada'){
 			echo "<tr>";
-				echo "<td class='titulo2' colspan='2' align=center><b>DETALLE DE ACCIONES</b></td>";
+				echo "<td class='titulo2' colspan='2' align=center><b>CARGA DE ACCIONES</b></td>";
 			echo "</tr>";
 			echo "<tr>";
 				echo "<td class='titulo2' colspan='1' style='text-align:left'>Acciones</td>";
 				echo "<td colspan='1' align=left>".$accion."</td>";
 			echo "</tr>";
-			}	
+			echo "</tr>";
+				echo "<td class='titulo2' colspan='1' style='text-align:left'>Cargado por</td>";
+				echo "<td colspan='1' align=left>".$idperso." el día ".$fecha." a hora ".$hora."</td>";
 			echo "<tr>";
 				echo "<td colspan='2' align='center'>";
 					echo "<input type='submit' value='Salir' name='submit'/>";

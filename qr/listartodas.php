@@ -11,21 +11,35 @@ require('../templates/sesioncom.php');
 $bandera = 0;
 $user=$_SESSION['usuario'];
 
-$sentencia1 = 'SELECT * FROM personas WHERE usuario = "' . $user. '"';
-$consulta1 = mysqli_query($iden,$sentencia1);
-$personabuscada = mysqli_fetch_array($consulta1);
-$usuario = $personabuscada['Idpersonas'];
-$area = $personabuscada['idsector'];
+if(isset($_POST['ano'])){
+	$actual = $_POST['ano'];
+}
+else {
+	$actual=date("Y");
+}
+$año = date("Y");   
 
-$sentencia2 = 'SELECT * FROM sector WHERE Idsector = "' . $area. '"';
-$consulta2 = mysqli_query($iden,$sentencia2);
-$areabuscada = mysqli_fetch_array($consulta2);
-$area1 = $areabuscada['nombresector'];
+echo "<form action='listartodas.php' method='post' target='principal'>";
+	echo "<table>";
+	echo "<tbody>";
+		echo "<tr>";
+			echo "<td class='detalle' colspan='10' align=center>Seleccione Año";
+				echo "<select name='ano'>";
+				for($i = 2019; $i <= $año; $i++){
+					echo "<option value='".$i."'>".$i."</option>";
+				}
+				echo "</select>";
+				echo "<input type='submit' value='Mostrar' name='submit'/>";
+				echo "</td>";
+		echo "</tr>";
+	echo "<tbody>";
+	echo "<table>";
+echo "</form>";
 
 echo "  <table>";
 	echo "<tbody>";
 		echo "<tr>";
-			echo "<td class='titulo1' colspan='10' align=center><h2>Lista de Registros de mi área</h2</td>";
+			echo "<td class='titulo1' colspan='10' align=center><h2>Lista de Registros de mi área del año '".$actual."'</h2</td>";
 		echo "</tr>";
 		echo "<tr>";
 			echo "<td class='titulo2'>Origen</td>";
@@ -39,7 +53,7 @@ echo "  <table>";
 			echo "<td class='titulo2'>Estado</td>";
 			echo "<td class='titulo2'>       </td>";
 		echo "</tr>";
-		$sentencia = "SELECT * FROM quejas WHERE destino = '". $area."'";
+		$sentencia = "SELECT * FROM quejas WHERE fechareg LIKE '%". $actual."%'";
 		$consulta = mysqli_query($iden,$sentencia);
 		while($buscado = mysqli_fetch_assoc($consulta)) 
 		{ 
@@ -83,7 +97,7 @@ echo "  <table>";
 		if($bandera == 0) 
 		{
 			echo "<tr>";
-				echo "<td  class='titulo1'colspan='9'>Sin registros dirigidas al área sin tratar</Font></td>";
+				echo "<td  class='titulo1'colspan='9'>Sin registros correspondientes al año buscado</Font></td>";
 			echo "</tr>";
 		}	
 	echo "</tbody>";

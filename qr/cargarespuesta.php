@@ -10,6 +10,7 @@ require('../templates/conexioncom.php');
 require('../templates/sesioncom.php');
 
 $user=$_SESSION['usuario'];
+$idper=$_SESSION['idper'];
 
 $idqrf=$_POST['idqrf'];
 
@@ -35,9 +36,6 @@ $personai=$buscada['personai'];
 $iorigen=$buscada['iorigen'];
 $suceso=$buscada['suceso'];
 $idpersona=$buscada['idpersona'];
-$respuesta=$buscada['respuesta'];
-$accion=$buscada['accion'];
-$estado=$buscada['estado'];
 
 $sentencia = 'SELECT * FROM personas WHERE Idpersonas = ' . $idpersona;
 $consulta = mysqli_query($iden,$sentencia);
@@ -45,8 +43,12 @@ $buscada = mysqli_fetch_array($consulta);
 
 $personacarga=$buscada['nombrepersonas'];
 
+$fecha = date("Y"). "-".date("m"). "-".date("d");   
+$dia=date("w");
+$hora=date("H")-3;
+$hora=$hora.":".date("i");
 
-echo "<form action='vermisquejas.php' method='post'>";
+echo "<form action='regrespuesta.php' method='post'>";
 	echo "<table border='1' align='center'>";
 		echo "<colgroup>";
 			echo "<col width='20%'/>";
@@ -117,27 +119,21 @@ echo "<form action='vermisquejas.php' method='post'>";
 				echo "<td class='titulo2'colspan='1' style='text-align:left'>Suceso asociado</td>";
 				echo "<td colspan=1 align=left>".$suceso."</td>";
 			echo "</tr>";
-			if($estado != 'Sin Tratar'){
-				echo "<tr>";
-				echo "<td class='titulo2' colspan='2' align=center><b>CARGA DE RESPUESTA</b></td>";
+			echo "<tr>";
+				echo "<td class='titulo1' colspan='2' align=center><h2>CARGA DE RESPUESTA</h2></td>";
 			echo "</tr>";
 			echo "<tr>";
 				echo "<td class='titulo2' colspan='1' style='text-align:left'>Respuesta</td>";
-				echo "<td colspan='1' align=left>".$respuesta."</td>";
+				echo "<td colspan='1' align=left><textarea name='respuesta' rows='3' cols='110' required maxlength='220' placeholder='Resumen de la acción tomada para evitar que se repita'></textarea></td>";
 			echo "</tr>";
-			}
-			if($estado != 'Sin Tratar' AND $estado != 'Tratada'){
-			echo "<tr>";
-				echo "<td class='titulo2' colspan='2' align=center><b>DETALLE DE ACCIONES</b></td>";
 			echo "</tr>";
-			echo "<tr>";
-				echo "<td class='titulo2' colspan='1' style='text-align:left'>Acciones</td>";
-				echo "<td colspan='1' align=left>".$accion."</td>";
-			echo "</tr>";
-			}	
+			echo "<input type='hidden' name='idqrf' value='".$idqrf."'>";
+			echo "<input type='hidden' name='idper' value='".$idper."'>";
+			echo "<input type='hidden' name='fecha' value='".$fecha."'>";
+			echo "<input type='hidden' name='hora' value='".$hora."'>";
 			echo "<tr>";
 				echo "<td colspan='2' align='center'>";
-					echo "<input type='submit' value='Salir' name='submit'/>";
+					echo "<input type='submit' value='Enviar Datos' name='submit'/>";
 				echo "</td>";
 			echo "</tr>";
 		echo "</tbody>";

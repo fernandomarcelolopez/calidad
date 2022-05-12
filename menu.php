@@ -54,7 +54,7 @@
 	    	</a>
 		</td>
 		<td align=center>
-			<a href="medicion.php">
+			<a href="md/portal.php" target="_top">
 			<div class="contenedor">
 				<img src="img/medicion.jpg" width=300px height=200px border=1>
 				<div class="centrado"><p class="textosobre">
@@ -86,7 +86,7 @@
 			</a>
 		</td>
 		<td align=center>
-	    	<a href="muro.php">
+	    	<a href="mr/portal.php" target="_top">
 			<div class="contenedor">
 				<img src="img/muro.jpg" width=300px height=200px border=1>
 				<div class="centrado"><p class="textosobre">
