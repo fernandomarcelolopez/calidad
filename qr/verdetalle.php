@@ -37,6 +37,8 @@ $suceso=$buscada['suceso'];
 $idpersona=$buscada['idpersona'];
 $respuesta=$buscada['respuesta'];
 $accion=$buscada['accion'];
+$verificacion=$buscada['verificacion'];
+$cierre=$buscada['cierre'];
 $estado=$buscada['estado'];
 
 $sentencia = 'SELECT * FROM personas WHERE Idpersonas = ' . $idpersona;
@@ -46,7 +48,7 @@ $buscada = mysqli_fetch_array($consulta);
 $personacarga=$buscada['nombrepersonas'];
 
 
-echo "<form action='vermisquejas.php' method='post'>";
+echo "<form action='vermis.php' method='post'>";
 	echo "<table border='1' align='center'>";
 		echo "<colgroup>";
 			echo "<col width='20%'/>";
@@ -135,6 +137,24 @@ echo "<form action='vermisquejas.php' method='post'>";
 				echo "<td colspan='1' align=left>".$accion."</td>";
 			echo "</tr>";
 			}	
+			if($estado != 'Sin Tratar' AND $estado != 'Tratada' AND $estado != 'Para Tratar'){
+				echo "<tr>";
+					echo "<td class='titulo2' colspan='2' align=center><b>DETALLE DE VERIFICACIONES</b></td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<td class='titulo2' colspan='1' style='text-align:left'>Verificaciones</td>";
+					echo "<td colspan='1' align=left>".$verificacion."</td>";
+				echo "</tr>";
+				}	
+			if($estado != 'Sin Tratar' AND $estado != 'Tratada' AND $estado != 'Para Tratar' AND $estado != 'Verificado'){
+				echo "<tr>";
+					echo "<td class='titulo2' colspan='2' align=center><b>DETALLE DE CIERRE</b></td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<td class='titulo2' colspan='1' style='text-align:left'>Observaciones de Cierre</td>";
+					echo "<td colspan='1' align=left>".$cierre."</td>";
+				echo "</tr>";
+				}	
 			echo "<tr>";
 				echo "<td colspan='2' align='center'>";
 					echo "<input type='submit' value='Salir' name='submit'/>";

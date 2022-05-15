@@ -14,17 +14,11 @@ echo "<table>";
     echo "<tr>";
         echo "<td>";
             echo "QR-F a mi área<br>";
-                echo "<form action='vermisquejas.php' method='get' target='principal'>";
-                    echo "<input type='submit' value='Quejas sin tratar' name='submit'/><br>";
-                echo "</form>";
-                echo "<form action='vermisreclamos.php' method='get' target='principal'>";
-                    echo "<input type='submit' value='Reclamos sin tratar' name='submit'/><br>";
-                echo "</form>";
-                echo "<form action='vermisfelicitaciones.php' method='get' target='principal'>";
-                    echo "<input type='submit' value='Felicitaciones sin tratar' name='submit'/><br>";
+                echo "<form action='vermissuger.php' method='get' target='principal'>";
+                    echo "<input type='submit' value='Sugerencias sin tratar' name='submit'/><br>";
                 echo "</form>";
                 echo "<form action='vertodas.php' method='get' target='principal'>";
-                    echo "<input type='submit' value='Todos los Registros' name='submit'/><br>";
+                    echo "<input type='submit' value='Todos las Sugerencias' name='submit'/><br>";
                 echo "</form>";
         echo "</td>";
     echo "</tr>";
@@ -32,44 +26,15 @@ echo "<table>";
         echo "<td>";
             echo "Acciones<br>";
                 echo "<form action='alta.php' method='get' target='principal'>";
-                IF($perfil == 2){
-                    echo "<input type='submit' value='Cargar Registro' name='submit'/><br>";
-                }
-                ELSE{
-                    echo "<input type='submit' value='Cargar Registro' name='submit'/ disabled><br>";
-                }
+                    echo "<input type='submit' value='Cargar Sugerencias' name='submit'/><br>";
                 echo "</form>";
-                echo "<form action='responder.php' method='get' target='principal'>";
-                IF($perfil == 2 OR $perfil == 3 ){
-                    echo "<input type='submit' value='Carga Respuesta' name='submit'/><br>";
-                }
-                ELSE{
-                    echo "<input type='submit' value='Carga Respuesta' name='submit'/disabled><br>";
-                }
+                echo "<form action='tratar.php' method='get' target='principal'>";
+                    echo "<input type='submit' value='Carga Tratamiento' name='submit'/><br>";
                 echo "</form>";
-                echo "<form action='accion.php' method='get' target='principal'>";
-                IF($perfil == 2){
-                    echo "<input type='submit' value='Carga Acciones' name='submit'/><br>";
-                }
-                ELSE{
-                    echo "<input type='submit' value='Carga Acciones' name='submit'/ disabled><br>";
-                }
-                echo "</form>";
-                echo "<form action='verificar.php' method='get' target='principal'>";
-                IF($perfil == 2){
-                    echo "<input type='submit' value='Verificar Acciones' name='submit'/><br>";
-                }
-                ELSE{
-                    echo "<input type='submit' value='Verificar Acciones' name='submit'/ disabled><br>";
-                }
-                echo "</form>";
+                echo "<form action='efectividad.php' method='get' target='principal'>";
+                    echo "<input type='submit' value='Verificar efectividad' name='submit'/><br>";
                 echo "<form action='cerrar.php' method='get' target='principal'>";
-                IF($perfil == 2){
                     echo "<input type='submit' value='Cerrar' name='submit'/><br>";
-                }
-                ELSE{
-                    echo "<input type='submit' value='Cerrar' name='submit'/ disabled><br>";
-                }
         echo "</form>";
         echo "</td>";
     echo "</tr>";

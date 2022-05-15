@@ -133,7 +133,7 @@ echo "<form action='regaccion.php' method='post'>";
 			echo "</tr>";
 			echo "<tr>";
 				echo "<td class='titulo2' colspan='1' style='text-align:left'>Acción</td>";
-				echo "<td colspan='1' align=left><input type='text' id='accion' name='accion' required maxlength='130' size='130'></td>";
+				echo "<td colspan='1' align=left><input type='text' id='accion' name='accion' required maxlength='130' size='110'></td>";
 			echo "</tr>";
 			echo "</tr>";
 				echo "<input type='hidden' name='idqrf' value='".$idqrf."'>";

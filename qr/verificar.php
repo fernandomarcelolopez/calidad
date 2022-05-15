@@ -25,7 +25,7 @@ $area1 = $areabuscada['nombresector'];
 echo "  <table>";
 	echo "<tbody>";
 		echo "<tr>";
-			echo "<td class='titulo1' colspan='10' align=center><h2>Lista de Registros de mi área sin tratar</h2</td>";
+			echo "<td class='titulo1' colspan='10' align=center><h2>Lista de Registros Tratados para Verificar Efectividad</h2</td>";
 		echo "</tr>";
 		echo "<tr>";
 			echo "<td class='titulo2'>Origen</td>";
@@ -39,7 +39,7 @@ echo "  <table>";
 			echo "<td class='titulo2'>Estado</td>";
 			echo "<td class='titulo2'>       </td>";
 		echo "</tr>";
-		$sentencia = "SELECT * FROM quejas WHERE destino = '". $area."' AND estado = 'Sin Tratar'";
+		$sentencia = "SELECT * FROM quejas WHERE estado = 'Para Verificar'";
 		$consulta = mysqli_query($iden,$sentencia);
 		while($buscado = mysqli_fetch_assoc($consulta)) 
 		{ 
@@ -72,9 +72,9 @@ echo "  <table>";
 				echo "<td class='detalle'>". $domicilio."</td>";
 				echo "<td class='detalle'>". $estado."</td>";
 				echo "<td class='detalle'>";
-					echo "<form action='cargarespuesta.php' method='post' target='principal'>";
+					echo "<form action='cargaverificaciones.php' method='post' target='principal'>";
 					echo "<input type='hidden' value='".$idqrf."' name='idqrf' id:'idqrf' />";
-					echo "<input type='submit' value='Responder' name='submit'/>";
+					echo "<input type='submit' value='Regis. Verif.' name='submit'/>";
 					echo "</form>";	
 				echo "</td>";
 			echo "</tr>";
@@ -83,7 +83,7 @@ echo "  <table>";
 		if($bandera == 0) 
 		{
 			echo "<tr>";
-				echo "<td  class='titulo1'colspan='10'>Sin Registros dirigidas al área sin tratar</Font></td>";
+				echo "<td  class='titulo1'colspan='10'>Sin Registros tratados para verificar</Font></td>";
 			echo "</tr>";
 		}	
 	echo "</tbody>";

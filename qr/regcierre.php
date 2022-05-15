@@ -22,7 +22,7 @@ $idqrf=$_POST['idqrf'];
 $idper=$_POST['idper'];
 $fecha=$_POST['fecha'];
 $hora=$_POST['hora'];
-$accion=$_POST['accion'];
+$cierre=$_POST['cierre'];
 
 $sentencia = 'SELECT * FROM quejas WHERE Idqrf = "' . $idqrf. '"';
 $consulta = mysqli_query($iden,$sentencia);
@@ -47,6 +47,9 @@ $iorigen=$buscada['iorigen'];
 $suceso=$buscada['suceso'];
 $idpersona=$buscada['idpersona'];
 $respuesta=$buscada['respuesta'];
+$accion=$buscada['accion'];
+$verificacion=$buscada['verificacion'];
+
 
 $sentencia = 'SELECT * FROM personas WHERE Idpersonas = ' . $idpersona;
 $consulta = mysqli_query($iden,$sentencia);
@@ -55,7 +58,7 @@ $buscada = mysqli_fetch_array($consulta);
 $personacarga=$buscada['nombrepersonas'];
 
 
-$sentencia = "UPDATE quejas SET accion='".$accion."', idaccion= '".$idper."', fechaaccion= '".$fecha."', horaaccion= '".$hora."', estado= 'Para Verificar' WHERE idqrf='".$idqrf."'";
+$sentencia = "UPDATE quejas SET cierre='".$cierre."', idcierre= '".$idper."', fechacierre= '".$fecha."', horacierre= '".$hora."', estado= 'Cerrado' WHERE idqrf='".$idqrf."'";
 $consulta = mysqli_query($iden,$sentencia);
 
 
@@ -138,11 +141,25 @@ echo "<form action='vermis.php' method='post'>";
 				echo "<td colspan='1' align=left>".$respuesta."</td>";
 			echo "</tr>";
 			echo "<tr>";
-				echo "<td class='titulo2' colspan='2' align=center><b>CARGA DE ACCIONES</b></td>";
+				echo "<td class='titulo2' colspan='2' align=center><b>DETALLE DE ACCIONES</b></td>";
 			echo "</tr>";
 			echo "<tr>";
 				echo "<td class='titulo2' colspan='1' style='text-align:left'>Acciones</td>";
 				echo "<td colspan='1' align=left>".$accion."</td>";
+			echo "</tr>";
+			echo "<tr>";
+				echo "<td class='titulo2' colspan='2' align=center><b>DETALLE DE VERIFICACION DE ACCIONES</b></td>";
+			echo "</tr>";
+			echo "<tr>";
+				echo "<td class='titulo2' colspan='1' style='text-align:left'>Verificación</td>";
+				echo "<td colspan='1' align=left>".$verificacion."</td>";
+			echo "</tr>";
+			echo "<tr>";
+				echo "<td class='titulo2' colspan='2' align=center><b>CARGA DE CIERRE</b></td>";
+			echo "</tr>";
+			echo "<tr>";
+				echo "<td class='titulo2' colspan='1' style='text-align:left'>Observación de Cierre</td>";
+				echo "<td colspan='1' align=left>".$cierre."</td>";
 			echo "</tr>";
 			echo "</tr>";
 				echo "<td class='titulo2' colspan='1' style='text-align:left'>Cargado por</td>";

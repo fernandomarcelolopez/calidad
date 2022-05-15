@@ -22,9 +22,9 @@
 			</a>
 		</td>
 		<td align=center>
-			<a href="sm.php">
+			<a href="sm/portal.php" target="_top">
 			<div class="contenedor">
-				<img src="img/sugerencias.png" width=300px height=200px border=1>
+				<img src="img/suger.png" width=300px height=200px border=1>
 				<div class="centrado"><p class="textosobre">
 					<b>Gesti&oacuten de Sugerencias para la Mejora</b></p>
 				</div>

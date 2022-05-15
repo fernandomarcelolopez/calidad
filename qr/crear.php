@@ -57,7 +57,7 @@ $sentencia = "INSERT INTO quejas (nombreqrf, fechareg, horareg, diareg, tipo, ce
 $consulta = mysqli_query($iden,$sentencia);
 
 
-echo "<form action='vermisquejas.php' method='post'>";
+echo "<form action='vermis.php' method='post'>";
 	echo "<table border='1' align='center'>";
 		echo "<colgroup>";
 			echo "<col width='20%'/>";
@@ -135,7 +135,7 @@ echo "<form action='vermisquejas.php' method='post'>";
 				echo "<td colspan=1 align=left>".$suceso."</td>";
 			echo "</tr>";
 			echo "<tr>";
-				echo "<td class='titulo2'colspan='1' style='text-align:left'>datos de la Carga</td>";
+				echo "<td class='titulo2'colspan='1' style='text-align:left'>Datos de la Carga</td>";
 				echo "<td colspan=1 align=left>Cargado por ".$nombreper." el día ".$fechahoy." a horas ".$horahoy."</td>";
 			echo "</tr>";
 			echo "<tr>";

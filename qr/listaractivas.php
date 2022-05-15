@@ -19,7 +19,7 @@ else {
 }
 $año = date("Y");   
 
-echo "<form action='listartodas.php' method='post' target='principal'>";
+echo "<form action='listaractivas.php' method='post' target='principal'>";
 	echo "<table>";
 	echo "<tbody>";
 		echo "<tr>";

@@ -58,7 +58,7 @@ $sentencia = "UPDATE quejas SET respuesta='".$respuesta."', idrespuesta= '".$idp
 $consulta = mysqli_query($iden,$sentencia);
 
 
-echo "<form action='vermisquejas.php' method='post'>";
+echo "<form action='vermis.php' method='post'>";
 	echo "<table border='1' align='center'>";
 		echo "<colgroup>";
 			echo "<col width='20%'/>";

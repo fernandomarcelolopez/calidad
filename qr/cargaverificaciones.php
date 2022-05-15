@@ -12,17 +12,7 @@ require('../templates/sesioncom.php');
 $user=$_SESSION['usuario'];
 $idper=$_SESSION['idper'];
 
-$sentencia = 'SELECT * FROM personas WHERE Idpersonas = "' . $idper. '"';
-$consulta = mysqli_query($iden,$sentencia);
-$buscada = mysqli_fetch_array($consulta);
-
-$idperso=$buscada['nombrepersonas'];
-
 $idqrf=$_POST['idqrf'];
-$idper=$_POST['idper'];
-$fecha=$_POST['fecha'];
-$hora=$_POST['hora'];
-$accion=$_POST['accion'];
 
 $sentencia = 'SELECT * FROM quejas WHERE Idqrf = "' . $idqrf. '"';
 $consulta = mysqli_query($iden,$sentencia);
@@ -47,6 +37,7 @@ $iorigen=$buscada['iorigen'];
 $suceso=$buscada['suceso'];
 $idpersona=$buscada['idpersona'];
 $respuesta=$buscada['respuesta'];
+$accion=$buscada['accion'];
 
 $sentencia = 'SELECT * FROM personas WHERE Idpersonas = ' . $idpersona;
 $consulta = mysqli_query($iden,$sentencia);
@@ -54,12 +45,12 @@ $buscada = mysqli_fetch_array($consulta);
 
 $personacarga=$buscada['nombrepersonas'];
 
+$fecha = date("Y"). "-".date("m"). "-".date("d");   
+$dia=date("w");
+$hora=date("H")-3;
+$hora=$hora.":".date("i");
 
-$sentencia = "UPDATE quejas SET accion='".$accion."', idaccion= '".$idper."', fechaaccion= '".$fecha."', horaaccion= '".$hora."', estado= 'Para Verificar' WHERE idqrf='".$idqrf."'";
-$consulta = mysqli_query($iden,$sentencia);
-
-
-echo "<form action='vermis.php' method='post'>";
+echo "<form action='regverificacion.php' method='post'>";
 	echo "<table border='1' align='center'>";
 		echo "<colgroup>";
 			echo "<col width='20%'/>";
@@ -138,18 +129,28 @@ echo "<form action='vermis.php' method='post'>";
 				echo "<td colspan='1' align=left>".$respuesta."</td>";
 			echo "</tr>";
 			echo "<tr>";
-				echo "<td class='titulo2' colspan='2' align=center><b>CARGA DE ACCIONES</b></td>";
+				echo "<td class='titulo2' colspan='2' align=center><b>DETALLE DE LAS ACCIONES</b></td>";
 			echo "</tr>";
 			echo "<tr>";
 				echo "<td class='titulo2' colspan='1' style='text-align:left'>Acciones</td>";
 				echo "<td colspan='1' align=left>".$accion."</td>";
 			echo "</tr>";
+
+			echo "<tr>";
+				echo "<td class='titulo1' colspan='2' align=center><h2>CARGA DE VERIFICACION DE ACCION DE MEJORA</h2></td>";
 			echo "</tr>";
-				echo "<td class='titulo2' colspan='1' style='text-align:left'>Cargado por</td>";
-				echo "<td colspan='1' align=left>".$idperso." el día ".$fecha." a hora ".$hora."</td>";
+			echo "<tr>";
+				echo "<td class='titulo2' colspan='1' style='text-align:left'>VERIFICACION</td>";
+				echo "<td colspan='1' align=left><input type='text' id='verificacion' name='verificacion' required maxlength='130' size='110'></td>";
+			echo "</tr>";
+			echo "</tr>";
+				echo "<input type='hidden' name='idqrf' value='".$idqrf."'>";
+				echo "<input type='hidden' name='idper' value='".$idper."'>";
+				echo "<input type='hidden' name='fecha' value='".$fecha."'>";
+				echo "<input type='hidden' name='hora' value='".$hora."'>";
 			echo "<tr>";
 				echo "<td colspan='2' align='center'>";
-					echo "<input type='submit' value='Salir' name='submit'/>";
+					echo "<input type='submit' value='Enviar Datos' name='submit'/>";
 				echo "</td>";
 			echo "</tr>";
 		echo "</tbody>";
