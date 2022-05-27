@@ -11,22 +11,35 @@ require('../templates/sesioncom.php');
 $bandera = 0;
 $user=$_SESSION['usuario'];
 
-$sentencia1 = 'SELECT * FROM personas WHERE usuario = "' . $user. '"';
-$consulta1 = mysqli_query($iden,$sentencia1);
-$personabuscada = mysqli_fetch_array($consulta1);
-$usuario = $personabuscada['Idpersonas'];
-$area = $personabuscada['idsector'];
-$idper = $personabuscada['Idpersonas'];
+if(isset($_POST['ano'])){
+	$actual = $_POST['ano'];
+}
+else {
+	$actual=date("Y");
+}
+$año = date("Y");   
 
-$sentencia2 = 'SELECT * FROM sector WHERE Idsector = "' . $area. '"';
-$consulta2 = mysqli_query($iden,$sentencia2);
-$areabuscada = mysqli_fetch_array($consulta2);
-$area1 = $areabuscada['nombresector'];
+echo "<form action='datosreg.php' method='post' target='principal'>";
+	echo "<table>";
+	echo "<tbody>";
+		echo "<tr>";
+			echo "<td class='detalle' colspan='10' align=center>Seleccione Año";
+				echo "<select name='ano'>";
+				for($i = 2019; $i <= $año; $i++){
+					echo "<option value='".$i."'>".$i."</option>";
+				}
+				echo "</select>";
+				echo "<input type='submit' value='Mostrar' name='submit'/>";
+				echo "</td>";
+		echo "</tr>";
+	echo "<tbody>";
+	echo "<table>";
+echo "</form>";
 
 echo "  <table>";
 	echo "<tbody>";
 		echo "<tr>";
-			echo "<td class='titulo1' colspan='7' align=center><h2>Lista de Mis Sugerencias</h2</td>";
+		echo "<td class='titulo1' colspan='7' align=center><h2>Lista de Sugerencias sin tratar</h2</td>";
 		echo "</tr>";
 		echo "<tr>";
 			echo "<td class='titulo2'>Numero</td>";
@@ -37,7 +50,8 @@ echo "  <table>";
 			echo "<td class='titulo2'>Estado</td>";
 			echo "<td class='titulo2'>       </td>";
 		echo "</tr>";
-		$sentencia = "SELECT * FROM sugerencia WHERE idpersona = '".$idper."'";
+
+		$sentencia = "SELECT * FROM sugerencia WHERE fecha LIKE '%". $actual."%'";
 		$consulta = mysqli_query($iden,$sentencia);
 		while($buscado = mysqli_fetch_assoc($consulta)) 
 		{ 
@@ -62,17 +76,17 @@ echo "  <table>";
 			$buscada = mysqli_fetch_array($consulta1);
 			$nombrepersona = $buscada['nombrepersonas'];
 
-			echo "<tr>";
-				echo "<td class='detalle'>". $nombresm."</td>";
-				echo "<td class='detalle'>".date("d/m/Y", strtotime($fecha))." - ".$hora."</td>";
-				echo "<td class='detalle'>". $centro."</td>";
-				echo "<td class='detalle'>". $sectord."</td>";
-				echo "<td class='detalle'>". $nombrepersona."</td>";
-				echo "<td class='detalle'>". $estado."</td>";
-				echo "<td class='detalle'>";
-					echo "<form action='verdetalle.php' method='post' target='principal'>";
-					echo "<input type='hidden' value='".$idsm."' name='idsm' id:'idam' />";
-					echo "<input type='submit' value='Ver Detalle' name='submit'/>";
+				echo "<tr>";
+					echo "<td class='detalle'>". $nombresm."</td>";
+					echo "<td class='detalle'>".date("d/m/Y", strtotime($fecha))." - ".$hora."</td>";
+					echo "<td class='detalle'>". $centro."</td>";
+					echo "<td class='detalle'>". $sectord."</td>";
+					echo "<td class='detalle'>". $nombrepersona."</td>";
+					echo "<td class='detalle'>". $estado."</td>";
+					echo "<td class='detalle'>";
+					echo "<form action='verdetallereg.php' method='post' target='principal'>";
+					echo "<input type='hidden' value='".$idsm."' name='idsm' id:'idsm' />";
+					echo "<input type='submit' value='Ver Det Regist.' name='submit'/>";
 					echo "</form>";	
 				echo "</td>";
 			echo "</tr>";

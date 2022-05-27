@@ -45,7 +45,7 @@ $sentencia = "UPDATE control SET smnumero='".$nuevonumero ."' WHERE id=1";
 $consulta = mysqli_query($iden,$sentencia);
 
 
-echo "<form action='vermis.php' method='post'>";
+echo "<form action='vermissuger.php' method='post'>";
 	echo "<table border='1' align='center'>";
 		echo "<colgroup>";
 			echo "<col width='20%'/>";

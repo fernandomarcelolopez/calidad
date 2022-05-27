@@ -62,7 +62,7 @@ echo "<form action='crear.php' method='post'>";
 				echo "</td>";
 			echo "</tr>";
 			echo "<tr>";
-				echo "<td class='titulo2' colspan='1' style='text-align:left'>Descripción de la sutuiación observada</td>";
+				echo "<td class='titulo2' colspan='1' style='text-align:left'>Descripción de la situación observada</td>";
 				echo "<td colspan='1' align=left><textarea name='descripcion' rows='4' cols='125' required maxlength='500' placeholder='Resumen de la situación que observa y que motiva la sugerencia'></textarea></td>";
 			echo "</tr>";
 			echo "<tr>";

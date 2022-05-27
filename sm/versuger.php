@@ -16,7 +16,6 @@ $consulta1 = mysqli_query($iden,$sentencia1);
 $personabuscada = mysqli_fetch_array($consulta1);
 $usuario = $personabuscada['Idpersonas'];
 $area = $personabuscada['idsector'];
-$idper = $personabuscada['Idpersonas'];
 
 $sentencia2 = 'SELECT * FROM sector WHERE Idsector = "' . $area. '"';
 $consulta2 = mysqli_query($iden,$sentencia2);
@@ -26,7 +25,7 @@ $area1 = $areabuscada['nombresector'];
 echo "  <table>";
 	echo "<tbody>";
 		echo "<tr>";
-			echo "<td class='titulo1' colspan='7' align=center><h2>Lista de Mis Sugerencias</h2</td>";
+			echo "<td class='titulo1' colspan='7' align=center><h2>Lista de Sugerencias sin tratar</h2</td>";
 		echo "</tr>";
 		echo "<tr>";
 			echo "<td class='titulo2'>Numero</td>";
@@ -37,7 +36,7 @@ echo "  <table>";
 			echo "<td class='titulo2'>Estado</td>";
 			echo "<td class='titulo2'>       </td>";
 		echo "</tr>";
-		$sentencia = "SELECT * FROM sugerencia WHERE idpersona = '".$idper."'";
+		$sentencia = "SELECT * FROM sugerencia WHERE estado = 'Sin Tratar'";
 		$consulta = mysqli_query($iden,$sentencia);
 		while($buscado = mysqli_fetch_assoc($consulta)) 
 		{ 
