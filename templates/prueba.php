@@ -1,16 +1,34 @@
+<!DOCTYPE html > 
+<html lang="es"> 
+   <head> 
+		<title>SGC911Salta</title>
+		<link rel="shortcut icon"href="../img/logo911.png"/>
+		<link rel="stylesheet"href="../css/tablas.css"/>
+   </head> 
 <?php
-$enlace = mysqli_connect("172.20.1.223", "calidad", "calidad", "snc");
-if (!$enlace) {
-    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
-    echo "errno de depuracion: " . mysqli_connect_errno() . PHP_EOL;
-    echo "error de depuracion: " . mysqli_connect_error() . PHP_EOL;
-    exit;
-}
-echo "Exito: Se realizo una conexion apropiada a MySQL! La base de datos mi_bd es genial." . PHP_EOL;
-echo "Informacion del host: " . mysqli_get_host_info($enlace) . PHP_EOL;
-mysqli_close($enlace);
-// con esto solucione el problema de coneccion al servidor
-//setsebool -P httpd_can_network_connect 1
+echo "<table>";
+	echo "<form enctype='multipart/form-data' action='prueba a.php' method='post'>";
+		echo "<tr>";
+			echo "<td>"; 
+				echo "<input name='archivo' type='file' accept='.pdf'/>";
+			echo "</td>"; 
+		echo "</tr>";
+		echo "<tr>";
+			echo "<td>"; 
+				echo "<input name='archivo1' type='file' accept='.pdf'/>";
+			echo "</td>"; 
+		echo "</tr>";
+		echo "<tr>";
+			echo "<td>"; 
+				echo "<input name='archivo2' type='file' accept='.pdf'/>";
+			echo "</td>"; 
+		echo "</tr>";
+		echo "<tr>";
+			echo "<td>"; 
+				echo "<input type='submit' value='Subir archivo' /></div>";
+			echo "</td>"; 
+		echo "</tr>";
+	echo "</form>";
+echo "</table>";
 ?>
-
-
+</html>

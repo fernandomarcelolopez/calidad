@@ -34,6 +34,7 @@ $persona=$buscada['nombrepersonas'];
 
 $fecha = date("Y"). "-".date("m"). "-".date("d");   
 $hora=date("H")-3;
+$hora=substr("00".$hora,-2);
 $hora=$hora.":".date("i");
 
 echo "<form enctype='multipart/form-data' action='cargaplanilla.php' method='post'>";
@@ -85,11 +86,11 @@ echo "<form enctype='multipart/form-data' action='cargaplanilla.php' method='pos
 				echo "<td class='titulo2' colspan='1' style='text-align:left'>Cantidad de Conformes (0 para sin planillas)</td>";
 				echo "<td colspan='1' align=left><input type='text' id='conformes' name='conformes' required maxlength='3' size='5'></td>";
 			echo "</tr>";
-/*			echo "<tr>";
+			echo "<tr>";
 				echo "<td class='titulo2' colspan='1' style='text-align:left'>Subir planilla en formato PDF o JPG</td>";
 				echo "<td colspan='1' align=left><input name='archivo' type='file' accept='.pdf'/></td>";
 			echo "</tr>";
-*/			echo "<input type='hidden' name='fecha' value='".$fecha."'>";
+			echo "<input type='hidden' name='fecha' value='".$fecha."'>";
 			echo "<input type='hidden' name='hora' value='".$hora."'>";
 			echo "<input type='hidden' name='idsm' value='".$idsm."'>";
 			echo "<tr>";

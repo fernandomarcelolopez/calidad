@@ -40,10 +40,6 @@ $buscada = mysqli_fetch_array($consulta);
 $persona=$buscada['nombrepersonas'];
 
 
-$sentencia = "UPDATE sugerencia SET consultados='".$consultados."', conformes= '".$conformes."', idplanilla= '".$idper."', fechaplanilla= '".$fechareg."', horaplanilla= '".$horareg."', estado= 'C/Planilla' WHERE idsm='".$idsm."'";
-$consulta = mysqli_query($iden,$sentencia);
-
-
 echo "<form action='planilla.php' method='post'>";
 	echo "<table border='1' align='center'>";
 		echo "<colgroup>";
@@ -107,32 +103,37 @@ echo "<form action='planilla.php' method='post'>";
 					echo "<td colspan='1' align=left>".$porcentaje ." %</td>";
 				echo "</tr>";
 			}
-			/*			$dia=substr($fechareg,0,4).substr($fechareg,5,2).substr($fechareg,8,4).substr($horareg,0,2).substr($horareg,3,2);
-			$directorio = "/var/www/html/calidad/sm/basepla/";
-			$archivo = $directorio . $dia . basename($_FILES['archivo']['name']);
+			$dia=substr($fechareg,0,4).substr($fechareg,5,2).substr($fechareg,8,4).substr($horareg,0,2).substr($horareg,3,2);
+			$directorio = "planilla/";
+			$archivo = "./".$directorio . $dia . basename($_FILES['archivo']['name']);
 			echo "<div>";
 			if (move_uploaded_file($_FILES['archivo']['tmp_name'], $archivo)) {
 				} else {
 				   echo "La subida ha fallado";
 				}
 				echo "</div>";
-			$nombrearchivo = $dia.$_FILES['archivo']['name'];
-			echo "<tr>";
+				$nombrearchivo = $dia.$_FILES['archivo']['name'];
+				$nombremuestra = $_FILES['archivo']['name'];
+				echo "<tr>";
 				echo "<td class='titulo2' colspan='1' style='text-align:left'>Archivo</td>";
-				echo "<td colspan='1' align=left>".$archivo."</td>";
+				echo "<td colspan='1' align=left>".$nombremuestra."</td>";
 			echo "</tr>";
-*/			echo "<tr>";
+			echo "<tr>";
 				echo "<td class='titulo2' colspan='1' style='text-align:left'>Cargado por </td>";
 				echo "<td colspan='1' align=left>".$nombre." el día ".date("d/m/Y", strtotime($fechareg))." a horas ".$horareg."</td>";
 			echo "</tr>";
 			echo "<tr>";
 				echo "<td colspan='2' align='center'>";
-					echo "<input type='submit' value='Enviar' name='submit'/>";
+					echo "<input type='submit' value='Salir' name='submit'/>";
 				echo "</td>";
 			echo "</tr>";
 		echo "</tbody>";
 	echo "</table>";
 echo "</form>";
+
+$sentencia = "UPDATE sugerencia SET consultados='".$consultados."', conformes= '".$conformes."', nombrearchivo= '".$nombrearchivo."', nombremuestra= '".$nombremuestra."', idplanilla= '".$idper."', fechaplanilla= '".$fechareg."', horaplanilla= '".$horareg."', estado= 'C/Planilla' WHERE idsm='".$idsm."'";
+$consulta = mysqli_query($iden,$sentencia);
+
 mysqli_free_result($consulta);
 mysqli_close($iden); 
 ?>

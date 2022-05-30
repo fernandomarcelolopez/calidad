@@ -28,6 +28,8 @@ $sugerencia=$buscada['sugerencia'];
 $estado=$buscada['estado'];
 $consultados=$buscada['consultados'];
 $conformes=$buscada['conformes'];
+$nombrearchivo=$buscada['nombrearchivo'];
+$nombremuestra=$buscada['nombremuestra'];
 $fechareunion=$buscada['fechareunion'];
 $factibilidad=$buscada['factibilidad'];
 $impacto=$buscada['impacto'];
@@ -37,6 +39,7 @@ $resultado=$buscada['resultado'];
 $acciones=$buscada['acciones'];
 $plazos=$buscada['plazos'];
 $efectividad=$buscada['efectividad'];
+$cierre=$buscada['cierre'];
 
 $sentencia = 'SELECT * FROM personas WHERE Idpersonas = ' . $idpersona;
 $consulta = mysqli_query($iden,$sentencia);
@@ -92,12 +95,17 @@ echo "<form action='vermissuger.php' method='post'>";
 				IF($conformes==0)
 				{
 				echo "<td colspan='1' align=left>No fue necesaria la realización de consulta</td>";
+				echo "</tr>";
 				} else
 				{
 				$porcentaje=($conformes/$consultados) * 100;
 				echo "<td colspan='1' align=left>Total de Consultados: ".$consultados." - Conformes: ".$conformes." - Porcentaje de Conformes: ".$porcentaje."%</td>";
-				}
 				echo "</tr>";
+				echo "<tr>";
+				echo "<td class='titulo2' colspan='1' style='text-align:left'>Planilla</td>";
+				echo "<td colspan='1' align=left>".$nombremuestra."<a target='_blank' href='./planilla/".$nombrearchivo."'> <button type='button'>Ver</button></a></td>";
+				echo "</tr>";
+				}
 			}
 			if($estado != 'Sin Tratar' AND $estado != 'C/Planilla'){
 			echo "<tr>";
@@ -150,7 +158,7 @@ echo "<form action='vermissuger.php' method='post'>";
 						echo "<td colspan='1' align=left>".$efectividad."</td>";
 					echo "</tr>";
 				}	
-/*			if($estado != 'Sin Tratar' AND $estado != 'Tratada' AND $estado != 'Para Tratar' AND $estado != 'Verificado'){
+			if($estado == 'Cerrada'){
 				echo "<tr>";
 					echo "<td class='titulo2' colspan='2' align=center><b>DETALLE DE CIERRE</b></td>";
 				echo "</tr>";
@@ -159,7 +167,7 @@ echo "<form action='vermissuger.php' method='post'>";
 					echo "<td colspan='1' align=left>".$cierre."</td>";
 				echo "</tr>";
 				}	
-*/			echo "<tr>";
+			echo "<tr>";
 				echo "<td colspan='2' align='center'>";
 					echo "<input type='submit' value='Salir' name='submit'/>";
 				echo "</td>";
